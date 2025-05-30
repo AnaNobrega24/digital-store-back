@@ -1,3 +1,5 @@
+const { PrismaClient } = require("../generated/prisma");
+const prisma = new PrismaClient();
 const mysql = require("mysql2/promise");
 
 async function executarSQL(comandoSql){
@@ -5,7 +7,7 @@ async function executarSQL(comandoSql){
         host: "localhost",
         user: "root",
         password: "1234",
-        port: "3306",
+        port: "3307",
         database: "digital_store_db"
     });
 
@@ -15,4 +17,4 @@ async function executarSQL(comandoSql){
     return result;
 }
 
-module.exports = { executarSQL };
+module.exports = { executarSQL, prisma };
